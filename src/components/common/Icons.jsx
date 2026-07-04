@@ -13,27 +13,3 @@ export function LinkedInIcon() {
     </svg>
   );
 }
-
-export function PhoneIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M7.3 4.2 9.1 8c.3.6.1 1.3-.4 1.7l-1.1.9c1 2.1 2.7 3.8 4.8 4.8l.9-1.1c.4-.5 1.1-.7 1.7-.4l3.8 1.8c.6.3.9.9.8 1.5l-.4 2.5c-.1.7-.7 1.2-1.4 1.2C9.6 20.9 3.1 14.4 3.1 6.2c0-.7.5-1.3 1.2-1.4l2.5-.4c.6-.1 1.2.2 1.5.8Z" />
-    </svg>
-  );
-}
-
-export function MailIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M4.8 5.5h14.4c1 0 1.8.8 1.8 1.8v9.4c0 1-.8 1.8-1.8 1.8H4.8c-1 0-1.8-.8-1.8-1.8V7.3c0-1 .8-1.8 1.8-1.8Zm7.2 7.1 7.1-4.7H4.9l7.1 4.7Zm0 2.1L4.7 9.9v6.8h14.6V9.9L12 14.7Z" />
-    </svg>
-  );
-}
-
-export function LocationIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2.8c-3.5 0-6.3 2.8-6.3 6.3 0 4.7 6.3 12.1 6.3 12.1s6.3-7.4 6.3-12.1c0-3.5-2.8-6.3-6.3-6.3Zm0 8.7c-1.3 0-2.4-1.1-2.4-2.4S10.7 6.7 12 6.7s2.4 1.1 2.4 2.4-1.1 2.4-2.4 2.4Z" />
-    </svg>
-  );
-}

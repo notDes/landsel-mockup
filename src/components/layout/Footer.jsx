@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import ExternalLink from "../common/ExternalLink.jsx";
 import SocialLink from "../common/SocialLink.jsx";
 import { FacebookIcon, LinkedInIcon } from "../common/Icons.jsx";
+import { mainNavigation } from "../../config/navigation.js";
 
 import {
   ADDRESS,
@@ -20,16 +21,11 @@ function Footer() {
     <footer className="footer">
       <div className="container footer-stack">
         <nav className="footer-nav" aria-label="Footer navigation">
-          <NavLink to="/" end>
-            Home
-          </NavLink>
-          <NavLink to="/who-we-are">Who We Are</NavLink>
-          <NavLink to="/services">Services</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/order">Order</NavLink>
-          <NavLink to="/emd">EMD</NavLink>
-          <NavLink to="/estimates">Estimates</NavLink>
-          <NavLink to="/resources">Resources</NavLink>
+          {mainNavigation.map((item) => (
+            <NavLink key={item.to} to={item.to} end={item.end}>
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
         <p className="footer-company">LandSel Title Agency, Inc.</p>
@@ -58,6 +54,7 @@ function Footer() {
         <ExternalLink
           className="button light footer-cta"
           href={TITLE_CAPTURE_QUOTE_URL}
+          ariaLabel="Open LandSel estimate tools"
         >
           Get a Quote
         </ExternalLink>

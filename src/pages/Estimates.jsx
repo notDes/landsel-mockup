@@ -1,4 +1,5 @@
 import ExternalLink from "../components/common/ExternalLink.jsx";
+import PageHero from "../components/common/PageHero.jsx";
 import {
   TITLE_CAPTURE_HOME_URL,
   TITLE_CAPTURE_QUOTE_URL,
@@ -6,26 +7,22 @@ import {
 
 function Estimates() {
   return (
-    <main>
-      <section className="page-hero">
-        <div className="container page-hero-inner">
-          <p className="eyebrow">Estimates</p>
-          <h1>Quotes, net sheets, and buyer estimates in one place.</h1>
-          <p>
-            The public website builds confidence. The estimate tools help users
-            move forward when they’re ready.
-          </p>
-        </div>
-      </section>
+    <main id="main-content">
+      <PageHero eyebrow="Estimates" title="Quotes, net sheets, and buyer estimates in one place.">
+        <p>
+          Use LandSel’s connected online tools to generate title quotes, seller
+          net sheets, buyer estimates, and closing cost estimates.
+        </p>
+      </PageHero>
 
       <section className="section title-tools-section">
         <div className="container tools-panel">
           <div>
             <p className="eyebrow">Online estimate tools</p>
-            <h2>Generate title quotes, seller net sheets, and more.</h2>
+            <h2>Start with the right numbers.</h2>
             <p>
-              Keep TitleCapture connected while making the public website feel
-              cleaner, easier to navigate, and more professional.
+              The estimate tools open in LandSel’s existing secure TitleCapture
+              portal so clients can continue using the tools they already know.
             </p>
           </div>
 
@@ -33,6 +30,7 @@ function Estimates() {
             <ExternalLink
               className="button primary light-green"
               href={TITLE_CAPTURE_QUOTE_URL}
+              ariaLabel="Open LandSel estimate tools"
             >
               Open Estimate Tools
             </ExternalLink>
@@ -40,6 +38,7 @@ function Estimates() {
             <ExternalLink
               className="button secondary light"
               href={TITLE_CAPTURE_HOME_URL}
+              ariaLabel="Open LandSel login portal"
             >
               Login / Register
             </ExternalLink>

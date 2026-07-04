@@ -1,92 +1,35 @@
-import Logo from "../components/common/Logo.jsx";
+import PageHero from "../components/common/PageHero.jsx";
+import { holidaysClosed } from "../data/holidays.js";
 
-function EMD() {
+function Resources() {
   return (
-    <main>
-      <section className="page-hero">
-        <div className="container page-hero-inner">
-          <p className="eyebrow">Earnest Money Deposit</p>
-          <h1>A cleaner EMD experience for buyers and agents.</h1>
-          <p>
-            The EMD flow should be easy to find and presented as a clear,
-            trusted next step.
-          </p>
-        </div>
-      </section>
+    <main id="main-content">
+      <PageHero eyebrow="Resources" title="Helpful information without clutter.">
+        <p>
+          Important operational details like holiday closures should be simple
+          to find and easy to understand.
+        </p>
+      </PageHero>
 
-      <section className="section emd-section">
-        <div className="container split-grid emd-grid">
-          <div className="section-copy">
-            <p className="eyebrow">EMD Flow</p>
-            <h2>Focused form flow without overwhelming the page.</h2>
-
+      <section className="section resources-section">
+        <div className="container resources-panel">
+          <div>
+            <p className="eyebrow">Holiday Closures</p>
+            <h2>LandSel offices are closed on these holidays.</h2>
             <p>
-              The original EMD tab uses a form for amount, buyer information,
-              property details, and SMS consent. The mockup presents that flow in
-              a cleaner, easier-to-scan way.
+              Please plan closings and document needs around these holiday
+              closures.
             </p>
-
-            <div className="mini-list">
-              <span>Amount</span>
-              <span>Buyer Info</span>
-              <span>Property Details</span>
-              <span>SMS Consent</span>
-            </div>
           </div>
 
-          <div className="emd-preview-card">
-            <div className="mock-browser-bar">
-              <span />
-              <span />
-              <span />
+          <div className="holiday-card">
+            <h3>Closed holidays</h3>
+
+            <div className="holiday-grid">
+              {holidaysClosed.map((holiday) => (
+                <span key={holiday}>{holiday}</span>
+              ))}
             </div>
-
-            <div className="emd-preview-header">
-              <Logo />
-              <p>Secure EMD Deposit</p>
-            </div>
-
-            <div className="mock-field wide">
-              <span>$ Amount</span>
-            </div>
-
-            <div className="mock-grid">
-              <div className="mock-field">
-                <span>Purchasing Entity</span>
-              </div>
-              <div className="mock-field">
-                <span>Property Type</span>
-              </div>
-            </div>
-
-            <div className="mock-section-title">Buyer Information</div>
-
-            <div className="mock-grid">
-              <div className="mock-field">
-                <span>Email Address</span>
-              </div>
-              <div className="mock-field">
-                <span>Mobile Phone Number</span>
-              </div>
-            </div>
-
-            <div className="mock-section-title">Property Under Contract</div>
-
-            <div className="mock-grid">
-              <div className="mock-field">
-                <span>Property Address</span>
-              </div>
-              <div className="mock-field">
-                <span>Property State</span>
-              </div>
-            </div>
-
-            <div className="mock-submit-row">
-              <div className="mock-checkbox" />
-              <span>SMS consent for multi-factor authentication</span>
-            </div>
-
-            <div className="mock-submit-button">Initiate Deposit</div>
           </div>
         </div>
       </section>
@@ -94,4 +37,4 @@ function EMD() {
   );
 }
 
-export default EMD;
+export default Resources;

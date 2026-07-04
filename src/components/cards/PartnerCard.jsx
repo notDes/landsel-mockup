@@ -7,13 +7,15 @@ function PartnerCard({ partner }) {
   return (
     <ExternalLink
       href={partner.url}
-      ariaLabel={partner.name}
+      ariaLabel={`Visit ${partner.name}`}
       className="partner-card"
     >
       {!failed && (
         <img
           src={partner.image}
           alt={partner.name}
+          loading="lazy"
+          decoding="async"
           onError={() => setFailed(true)}
         />
       )}

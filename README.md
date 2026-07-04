@@ -1,16 +1,36 @@
-# React + Vite
+# LandSel Title Agency Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Production React/Vite frontend for the LandSel Title Agency public website.
 
-Currently, two official plugins are available:
+## Tech stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- React Router
+- Vite
+- Plain CSS modules split by responsibility
 
-## React Compiler
+## Local development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Production build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run lint
+npm run build
+```
+
+The production-ready static files are generated in `dist/`.
+
+## GoDaddy deployment
+
+Upload the contents of the `dist/` folder to the hosting document root, usually `public_html/`. The project includes `public/.htaccess`, which Vite copies into `dist/` during build so React Router page refreshes work on Apache-based hosting.
+
+## Important notes
+
+- The online estimate tools intentionally continue to open LandSel's existing TitleCapture portal.
+- Team and partner images live in `public/assets/` and are referenced from the data files in `src/data/`.
+- Do not commit `node_modules/` or `dist/` to Git.

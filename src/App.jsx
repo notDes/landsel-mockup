@@ -11,6 +11,7 @@ import EMD from "./pages/EMD.jsx";
 import Order from "./pages/Order.jsx";
 import Resources from "./pages/Resources.jsx";
 import Contact from "./pages/Contact.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="order" element={<Order />} />
           <Route path="resources" element={<Resources />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>

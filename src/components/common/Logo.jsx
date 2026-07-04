@@ -7,9 +7,11 @@ function Logo({ variant = "default" }) {
     <div className={`logo-wrap logo-wrap-${variant}`}>
       {!failed && (
         <img
-          src="/assets/landsel-logo.png"
+          src="/assets/landsel-logo.webp"
           alt="LandSel Title Agency"
           className="brand-logo"
+          width="300"
+          height="200"
           onError={() => setFailed(true)}
         />
       )}

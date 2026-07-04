@@ -1,29 +1,25 @@
 import Logo from "../components/common/Logo.jsx";
+import PageHero from "../components/common/PageHero.jsx";
 
 function EMD() {
   return (
-    <main>
-      <section className="page-hero">
-        <div className="container page-hero-inner">
-          <p className="eyebrow">Earnest Money Deposit</p>
-          <h1>A cleaner EMD experience for buyers and agents.</h1>
-          <p>
-            The EMD flow should be easy to find and presented as a clear,
-            trusted next step.
-          </p>
-        </div>
-      </section>
+    <main id="main-content">
+      <PageHero eyebrow="Earnest Money Deposit" title="A clear path for EMD submissions.">
+        <p>
+          The EMD experience should be easy to find, easy to scan, and clear
+          about the details needed to initiate a deposit.
+        </p>
+      </PageHero>
 
       <section className="section emd-section">
         <div className="container split-grid emd-grid">
           <div className="section-copy">
             <p className="eyebrow">EMD Flow</p>
-            <h2>Focused form flow without overwhelming the page.</h2>
-
+            <h2>Focused details without overwhelming the page.</h2>
             <p>
-              The original EMD tab uses a form for amount, buyer information,
-              property details, and SMS consent. The mockup presents that flow in
-              a cleaner, easier-to-scan way.
+              Buyers and agents can quickly understand what is needed: deposit
+              amount, purchasing entity, buyer contact information, property
+              details, and SMS consent for verification.
             </p>
 
             <div className="mini-list">
@@ -34,8 +30,8 @@ function EMD() {
             </div>
           </div>
 
-          <div className="emd-preview-card">
-            <div className="mock-browser-bar">
+          <div className="emd-preview-card" aria-label="EMD form preview">
+            <div className="mock-browser-bar" aria-hidden="true">
               <span />
               <span />
               <span />
@@ -82,7 +78,7 @@ function EMD() {
             </div>
 
             <div className="mock-submit-row">
-              <div className="mock-checkbox" />
+              <div className="mock-checkbox" aria-hidden="true" />
               <span>SMS consent for multi-factor authentication</span>
             </div>
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { formatPhoneHref } from "../../utils/formatPhoneHref.js";
 
 function TeamCard({ member }) {
   const [failed, setFailed] = useState(false);
@@ -10,6 +11,8 @@ function TeamCard({ member }) {
           <img
             src={member.image}
             alt={member.name}
+            loading="lazy"
+            decoding="async"
             onError={() => setFailed(true)}
           />
         )}
@@ -21,9 +24,7 @@ function TeamCard({ member }) {
         <p className="team-role">{member.role}</p>
 
         <div className="team-links">
-          <a href={`tel:+1${member.phone.replaceAll("-", "")}`}>
-            {member.phone}
-          </a>
+          <a href={formatPhoneHref(member.phone)}>{member.phone}</a>
           <a href={`mailto:${member.email}`}>{member.email}</a>
         </div>
       </div>
