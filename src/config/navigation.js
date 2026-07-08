@@ -5,6 +5,6 @@ export const mainNavigation = [
   { label: "Order", to: "/order" },
   { label: "EMD", to: "/emd" },
   { label: "Estimates", to: "/estimates" },
-  { label: "Resources", to: "/resources" },
+  { label: "Events", to: "/resources" },
   { label: "Contact", to: "/contact" },
 ];

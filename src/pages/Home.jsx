@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ActionCard from "../components/cards/ActionCard.jsx";
 import PartnerCard from "../components/cards/PartnerCard.jsx";
 import ExternalLink from "../components/common/ExternalLink.jsx";
+import FadeIn from "../components/common/FadeIn.jsx";
 import { partners } from "../data/partners.js";
 import { TITLE_CAPTURE_QUOTE_URL } from "../data/constants.js";
 
@@ -119,8 +120,14 @@ function Home() {
           </div>
 
           <div className="partner-grid">
-            {partners.map((partner) => (
-              <PartnerCard partner={partner} key={partner.name} />
+            {partners.map((partner, index) => (
+              <FadeIn
+                key={partner.name}
+                className="partner-reveal"
+                delay={index * 60}
+              >
+                <PartnerCard partner={partner} />
+              </FadeIn>
             ))}
           </div>
         </div>

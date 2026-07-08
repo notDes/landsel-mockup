@@ -1,23 +1,60 @@
+/* ============================================================
+   LandSel design system
+   ------------------------------------------------------------
+   Tokens: one palette, one type scale, one spacing rhythm.
+   Every page pulls from these variables — change them here
+   and the whole site follows.
+   ============================================================ */
+
 :root {
-  --bg: #f5f1e6;
-  --bg-soft: #fbf8ee;
-  --white: #ffffff;
-  --ink: #17221d;
-  --muted: #617066;
+  /* --- Palette ------------------------------------------------
+     Primary   : forest greens (brand)
+     Accent    : leaf green (used sparingly — links, focus, details)
+     Neutrals  : cream page background, soft cream fills, white cards
+  */
   --forest: #103b2a;
   --forest-2: #185338;
   --forest-3: #246a49;
+  --forest-deep: #0b2d20;
   --leaf: #0ab15f;
-  --leaf-soft: #d8ead9;
-  --cream-2: #fffaf0;
-  --line: rgba(16, 59, 42, 0.13);
-  --shadow: 0 24px 70px rgba(16, 59, 42, 0.16);
-  --shadow-soft: 0 18px 45px rgba(16, 59, 42, 0.1);
-  --radius: 28px;
-  --radius-sm: 18px;
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  --sage: #edf5e8;
+  --cream: #f5f1e6;
+  --cream-soft: #fbf8ee;
+  --white: #ffffff;
+  --ink: #17221d;
+  --muted: #5b6b62;
+  --line: rgba(16, 59, 42, 0.12);
+
+  /* Aliases kept for older class rules */
+  --bg: var(--cream);
+  --bg-soft: var(--cream-soft);
+  --cream-2: var(--cream-soft);
+  --leaf-soft: var(--sage);
+
+  /* --- Typography scale --------------------------------------
+     display : page titles (H1) — every page uses the same size
+     h2      : section titles — identical on every page
+     h3      : card titles
+  */
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --text-display: clamp(2.7rem, 5vw, 4.2rem);
+  --text-h2: clamp(1.9rem, 3vw, 2.5rem);
+  --text-h3: 1.3rem;
+  --text-lede: 1.1rem;
+
+  /* --- Spacing, shape, elevation ------------------------------ */
+  --section-pad: clamp(72px, 8vw, 96px);
+  --gap: 20px;
+  --radius-lg: 28px;
+  --radius: 20px;
+  --radius-sm: 14px;
+  --shadow: 0 24px 60px rgba(16, 59, 42, 0.12);
+  --shadow-soft: 0 12px 32px rgba(16, 59, 42, 0.07);
+
+  font-family: var(--font-sans);
 }
 
 * {
@@ -32,6 +69,9 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -58,7 +98,8 @@ svg {
 h1,
 h2,
 h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
+  color: var(--forest);
 }
 
 .container {
@@ -80,7 +121,7 @@ h3 {
   border-radius: 999px;
   background: var(--forest);
   color: #fff;
-  font-weight: 900;
+  font-weight: 700;
   padding: 10px 16px;
   transition: transform 180ms ease;
 }
@@ -89,13 +130,15 @@ h3 {
   transform: translateY(0);
 }
 
+/* --- Section rhythm: identical vertical padding on every page --- */
+
 .section {
-  padding: 88px 0;
+  padding: var(--section-pad) 0;
 }
 
 .section-heading {
-  max-width: 760px;
-  margin-bottom: 34px;
+  max-width: 720px;
+  margin: 0 0 44px;
 }
 
 .section-heading.centered {
@@ -104,17 +147,19 @@ h3 {
   text-align: center;
 }
 
+/* --- Heading hierarchy ------------------------------------------
+   Every section title on every page shares the same H2 scale. */
+
 .section-heading h2,
 .section-copy h2,
 .tools-panel h2,
 .resources-panel h2,
-.contact-copy-card h2,
-.page-hero h1 {
+.contact-copy-card h2 {
   margin: 0;
   color: var(--forest);
-  font-size: clamp(2.1rem, 4vw, 4rem);
-  line-height: 1.08;
-  letter-spacing: -0.045em;
+  font-size: var(--text-h2);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .section-heading p,
@@ -123,28 +168,35 @@ h3 {
 .resources-panel p,
 .contact-copy-card p,
 .page-hero p {
-  color: #5b6b62;
-  line-height: 1.75;
-  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: var(--text-lede);
 }
 
 .eyebrow {
   margin: 0 0 14px;
   color: var(--forest-3);
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   font-size: 0.78rem;
 }
+
+/* --- Buttons: one system, four variants -------------------------
+   primary     : solid forest (light backgrounds)
+   secondary   : white outline (light backgrounds)
+   light       : ghost (dark backgrounds)
+   light-green : solid white (dark backgrounds)
+*/
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 52px;
-  padding: 0 23px;
+  padding: 0 26px;
   border-radius: 999px;
-  font-weight: 900;
+  font-weight: 700;
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
@@ -160,21 +212,29 @@ button:focus-visible {
 }
 
 .button.primary {
-  background: linear-gradient(135deg, var(--forest-3), var(--leaf));
+  background: var(--forest);
   color: #fff;
-  box-shadow: 0 18px 35px rgba(36, 106, 73, 0.25);
+  box-shadow: 0 14px 28px rgba(16, 59, 42, 0.18);
+}
+
+.button.primary:hover {
+  background: var(--forest-2);
 }
 
 .button.secondary {
-  background: rgba(255, 255, 255, 0.84);
+  background: var(--white);
   color: var(--forest);
-  border: 1px solid rgba(16, 59, 42, 0.15);
+  border: 1px solid var(--line);
 }
 
 .button.light {
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   background: rgba(255, 255, 255, 0.08);
+}
+
+.button.light:hover {
+  background: rgba(255, 255, 255, 0.16);
 }
 
 .button.light-green {
@@ -182,47 +242,43 @@ button:focus-visible {
   color: var(--forest);
 }
 
+/* --- Page hero: identical treatment on every interior page ------ */
+
 .page-hero {
-  padding: 84px 0;
-  background:
-    radial-gradient(circle at top left, rgba(10, 177, 95, 0.16), transparent 28%),
-    linear-gradient(135deg, #fbf8ee 0%, #edf5e8 55%, #f5f1e6 100%);
+  padding: clamp(64px, 7vw, 88px) 0;
+  background: linear-gradient(135deg, #fbf8ee 0%, #edf5e8 55%, #f5f1e6 100%);
+  border-bottom: 1px solid var(--line);
 }
 
 .page-hero-inner {
-  max-width: 860px;
+  max-width: 820px;
 }
 
 .page-hero h1 {
-  font-size: clamp(2.9rem, 6vw, 5.4rem);
+  margin: 0;
+  color: var(--forest);
+  font-size: var(--text-display);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
 .page-hero-copy {
-  margin-top: 20px;
+  margin-top: 18px;
+  max-width: 640px;
+}
+
+.page-hero-copy p {
+  margin: 0;
 }
 
 .page-hero-copy .button {
-  margin-top: 12px;
-}
-
-.page-hero-compact {
-  padding: 56px 0 30px;
-  background: var(--cream-2);
-}
-
-.page-hero-compact .page-hero-inner {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.page-hero-compact h1 {
-  font-size: clamp(2.3rem, 4vw, 3.3rem);
+  margin-top: 24px;
 }
 
 .split-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 60px;
+  gap: clamp(32px, 5vw, 60px);
   align-items: center;
 }
 
@@ -234,12 +290,13 @@ button:focus-visible {
 }
 
 .mini-list span {
-  padding: 10px 14px;
+  padding: 10px 16px;
   border-radius: 999px;
-  background: #fff;
+  background: var(--white);
   color: var(--forest);
-  border: 1px solid rgba(16, 59, 42, 0.1);
-  font-weight: 800;
+  border: 1px solid var(--line);
+  font-weight: 700;
+  font-size: 0.94rem;
 }
 
 @media (max-width: 640px) {
@@ -247,11 +304,7 @@ button:focus-visible {
     width: min(100% - 26px, 1160px);
   }
 
-  .section {
-    padding: 68px 0;
-  }
-
   .page-hero h1 {
-    font-size: 2.85rem;
+    font-size: 2.5rem;
   }
 }

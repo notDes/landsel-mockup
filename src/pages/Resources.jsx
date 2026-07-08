@@ -4,7 +4,7 @@ import { holidaysClosed } from "../data/holidays.js";
 function Resources() {
   return (
     <main id="main-content">
-      <PageHero eyebrow="Resources" title="Helpful information without clutter.">
+      <PageHero eyebrow="Events" title="Helpful information without clutter.">
         <p>
           Important operational details like holiday closures should be simple
           to find and easy to understand.

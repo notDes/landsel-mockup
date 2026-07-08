@@ -5,10 +5,10 @@ import { testimonials } from "../data/testimonials.js";
 function Services() {
   return (
     <main id="main-content">
-      <PageHero eyebrow="Services" title="Services we offer" compact>
+      <PageHero eyebrow="Services" title="Title and escrow services for every transaction.">
         <p>
-          Title and escrow support for residential, commercial, agriculture,
-          development, and closing needs.
+          Residential, commercial, and land closings — handled start to
+          finish.
         </p>
       </PageHero>
 

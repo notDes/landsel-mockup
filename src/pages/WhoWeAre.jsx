@@ -14,15 +14,8 @@ function WhoWeAre() {
       </PageHero>
 
       <section className="section about-section">
-        <div className="container split-grid">
-          <div className="about-media" aria-hidden="true">
-            <div className="glass-card">
-              <p className="small-label">Since 1992</p>
-              <h2>Service through integrity.</h2>
-            </div>
-          </div>
-
-          <div className="section-copy">
+        <div className="container">
+          <div className="section-copy about-copy">
             <p className="eyebrow">About LandSel</p>
             <h2>Ready to assist from title questions to closing support.</h2>
             <p>
